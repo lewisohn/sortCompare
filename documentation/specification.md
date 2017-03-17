@@ -1,6 +1,6 @@
 **Specification** (M‰‰rittelydokumentti)
 
-The purpose of this project will be to implement a variety of sorting algorithms and then compare their running time and memory requirements in various situations.
+The purpose of this project is to implement a variety of sorting algorithms in Java and then compare their running times and memory requirements in various situations.
 
 I have chosen six sorting algorithms that vary significantly from one another to make the comparisons more interesting. These algorithms are listed below with their sorting method in brackets:
 
