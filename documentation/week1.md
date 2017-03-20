@@ -1,0 +1,7 @@
+**Week 1 report** (Viikkoraportti 1)
+
+In the first week of this course, I spent some time researching possible topics before settling on the comparison of sorting algorithms. I felt like it would be something I could achieve while still challenging myself. Once that was decided, I created a Git(hub) repository and laid out a basic package structure in NetBeans. It'll probably change a lot but I thought it would help me to plan the project. I didn't actually implement any code in the first week other than "hello world" in my Main class, but I have a good idea of what to do next: write the basic comparison interface and then the first two sorting algorithms to test it with. I'll be using ArrayList for now but I'll be replacing it with a custom-made flexible array in the future.
+
+I decided to go for a Maven project because I was familiar with it from an earlier course. It will allow me to perform mutation testing on my JUnit tests to make sure they're sufficiently thorough. I've had some problems with Maven in the past but it seems to be cooperating so far. In fact I didn't really run into any problems this week at all.
+
+In total I spent maybe four hours working on the course this week but I'm sure that will increase now that the project is properly under way.
