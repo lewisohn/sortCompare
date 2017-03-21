@@ -1,11 +1,13 @@
 package sortcompare;
 
+import sortcompare.logic.UI;
+
 public class Main {
 
-	public static void main(String[] args) {
+	private static UI ui;
 
-		System.out.println("Hello world!");
-		
+	public static void main(String[] args) {
+		ui = new UI();
 	}
-	
+
 }
