@@ -188,7 +188,7 @@ public class DataSelect extends Select {
 	}
 
 	private void done() {
-		System.out.print("Finished adding numbers. ");
+		System.out.println("Finished adding numbers. ");
 	}
 
 }
