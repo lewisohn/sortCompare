@@ -11,7 +11,7 @@ public class Merge implements Sort {
 
 	@Override
 	public String toString() {
-		return "merge";
+		return "Merge";
 	}
 
 }

@@ -11,7 +11,7 @@ public class Bubble implements Sort {
 	
 	@Override
 	public String toString() {
-		return "bubble";
+		return "Bubble";
 	}
 
 }

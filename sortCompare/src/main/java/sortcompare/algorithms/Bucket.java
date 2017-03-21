@@ -11,7 +11,7 @@ public class Bucket implements Sort {
 
 	@Override
 	public String toString() {
-		return "bucket";
+		return "Bucket";
 	}
 
 }

@@ -11,7 +11,7 @@ public class Heap implements Sort {
 
 	@Override
 	public String toString() {
-		return "heap";
+		return "Heap";
 	}
 
 }

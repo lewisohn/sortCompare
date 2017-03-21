@@ -11,7 +11,7 @@ public class Quick implements Sort {
 
 	@Override
 	public String toString() {
-		return "quick";
+		return "Quick";
 	}
 
 }

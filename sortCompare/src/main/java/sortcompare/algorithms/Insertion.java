@@ -11,7 +11,7 @@ public class Insertion implements Sort {
 
 	@Override
 	public String toString() {
-		return "insertion";
+		return "Insertion";
 	}
 
 }
