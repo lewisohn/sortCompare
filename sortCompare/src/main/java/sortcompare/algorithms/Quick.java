@@ -1,11 +1,17 @@
 package sortcompare.algorithms;
 
-import java.util.ArrayList;
+import sortcompare.structures.FlexList;
 
-public class Quick implements Sort {
+/**
+ * Quick sort. Chooses a item then moves everything less than it to the left and
+ * everything greater than or equal to it to the right. This is repeated
+ * recursively until the data are sorted.
+ * @author Oliver
+ */
+public class Quick extends Sort {
 
 	@Override
-	public ArrayList<Integer> sort(ArrayList<Integer> data) {
+	public FlexList<Integer> sort(FlexList<Integer> data) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 

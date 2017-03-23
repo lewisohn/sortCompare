@@ -1,0 +1,9 @@
+**Week 2 report** (Viikkoraportti 2)
+
+I had less time to work on the project this week than I would have liked because I'm going to be in England for the second half of it, but I'm still pleased with my progress. I achieved everything I set out to do: writing the first two sorting algorithms, a way of comparing them, JUnit tests and Javadocs; then I got a bit carried away and wrote a user interface as well. It's nothing special - it uses the command line - but it means that I can now actually use my program (with some restrictions, of course).
+
+Naturally, I started with the two easiest algorithms, which I determined were Bubble sort and Insertion sort. If I recall correctly, I wrote both during the Data Structures and Algorithms course, so it was fairly straightforward to do so again. I can already tell from the JUnit reports that Bubble is significantly slower than Insertion with large data sets, which is good, because it's supposed to be.
+
+I think the main thing I learned this week is how to inherit JUnit tests. In the past I would have copy-pasted them but since every algorithm I write can be subjected to the same tests, this feels a lot better. I had to wrestle with Maven for a bit to get it to work but it does now. I also learnt (or perhaps remembered) that Scanner is a pain to work with. I replaced it with BufferedReader, which is also a pain, just slightly less so.
+
+Next week, when I'm back in Finland, I'd like to figure out a way to remove some of the duplicate try-catch blocks that surround the readers in my DataSelector and SortSelector classes. My main task will be to implement at least the next two sorting algorithms, probably Merge and Heap.

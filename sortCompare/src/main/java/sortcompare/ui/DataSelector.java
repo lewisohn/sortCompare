@@ -1,4 +1,4 @@
-package sortcompare.logic;
+package sortcompare.ui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,16 +6,27 @@ import java.io.InputStreamReader;
 import java.util.Random;
 import sortcompare.structures.FlexList;
 
-public class DataSelect extends Select {
+/**
+ * Gathers data for sorting.
+ * @author Oliver Lewisohn
+ */
+public class DataSelector extends Selector {
 
 	private final FlexList<Integer> data;
 	private final BufferedReader reader;
 
-	public DataSelect() {
+	/**
+	 * Creates a new DataSelector.
+	 */
+	public DataSelector() {
 		data = new FlexList();
 		reader = new BufferedReader(new InputStreamReader(System.in));
 	}
 
+	/**
+	 * Prompts the user to choose a method of entering data.
+	 * @return The finalised data.
+	 */
 	public FlexList<Integer> populate() {
 		System.out.println("To compare sorting algorithms, we need some data to sort.");
 		int input = -1;
@@ -55,12 +66,11 @@ public class DataSelect extends Select {
 			} else {
 				invalid();
 			}
-
 		}
 	}
 
 	private void manual() {
-		prompt("Enter some positive or negative integers. One number per line, 0 to finish:");
+		prompt("Enter some positive or negative integers, one number per line, 0 to finish:");
 		int input = -1;
 		while (true) {
 			try {

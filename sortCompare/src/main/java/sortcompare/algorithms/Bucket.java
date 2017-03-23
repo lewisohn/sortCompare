@@ -1,11 +1,16 @@
 package sortcompare.algorithms;
 
-import java.util.ArrayList;
+import sortcompare.structures.FlexList;
 
-public class Bucket implements Sort {
+/**
+ * Bucket sort. Divides data into buckets, sorts the buckets and recombines
+ * them.
+ * @author Oliver Lewisohn
+ */
+public class Bucket extends Sort {
 
 	@Override
-	public ArrayList<Integer> sort(ArrayList<Integer> data) {
+	public FlexList<Integer> sort(FlexList<Integer> data) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 

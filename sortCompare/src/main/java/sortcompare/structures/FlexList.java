@@ -1,13 +1,21 @@
 package sortcompare.structures;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
-/*
-	This class will eventually replicate the functionality of ArrayList
-	but for now it's just an extension.
+/**
+ * Flexible-sized list. Currently just an extension of ArrayList but will
+ * eventually be replaced with a custom implementation.
+ *
+ * @author Oliver Lewisohn
+ * @param <E> The type of Object the list will contain.
  */
 public class FlexList<E> extends ArrayList<E> {
+
+	public void addAll(E[] array) {
+		this.addAll(Arrays.asList(array));
+	}
 
 	@Override
 	public String toString() {

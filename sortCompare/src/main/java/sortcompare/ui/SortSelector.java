@@ -1,4 +1,4 @@
-package sortcompare.logic;
+package sortcompare.ui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,13 +6,20 @@ import java.io.InputStreamReader;
 import sortcompare.algorithms.*;
 import sortcompare.structures.FlexList;
 
-public class SortSelect extends Select {
+/**
+ * Gathers a set of algorithms to compare.
+ * @author Oliver Lewisohn
+ */
+public class SortSelector extends Selector {
 
 	private final FlexList<Sort> algorithms;
 	private final Sort[] sorters;
 	private final BufferedReader reader;
 
-	public SortSelect() {
+	/**
+	 * Creates a new SortSelector.
+	 */
+	public SortSelector() {
 		algorithms = new FlexList<>();
 		sorters = new Sort[]{
 			new Bubble(),
@@ -25,6 +32,10 @@ public class SortSelect extends Select {
 		reader = new BufferedReader(new InputStreamReader(System.in));
 	}
 
+	/**
+	 * Prompts the user to select some algorithms.
+	 * @return
+	 */
 	public FlexList<Sort> populate() {
 		System.out.println("Next, let's choose some sorting algorithms to compare.");
 		int input = -1;
@@ -70,11 +81,11 @@ public class SortSelect extends Select {
 	@Override
 	void options() {
 		System.out.println("  1  Bubble sort"
-				+ "\n  2  Bucket sort"
-				+ "\n  3  Heap sort"
+				+ "\n  2  Bucket sort (unavailable)"
+				+ "\n  3  Heap sort (unavailable)"
 				+ "\n  4  Insertion sort"
-				+ "\n  5  Merge sort"
-				+ "\n  6  Quick sort"
+				+ "\n  5  Merge sort (unavailable)"
+				+ "\n  6  Quick sort (unavailable)"
 				+ "\n  7  Preview selected algorithms"
 				+ "\n  9  See these options again"
 				+ "\n  0  End selection");

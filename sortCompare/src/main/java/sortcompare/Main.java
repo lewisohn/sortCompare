@@ -1,13 +1,19 @@
 package sortcompare;
 
-import sortcompare.logic.UI;
+import sortcompare.ui.UI;
 
+/**
+ * Comparison of sorting algorithms.
+ * @author Oliver Lewisohn
+ */
 public class Main {
 
-	private static UI ui;
-
+	/**
+	 * Main method. Launches the user interface then calls the evaluator.
+	 * @param args No arguments necessary.
+	 */
 	public static void main(String[] args) {
-		ui = new UI();
+		new UI().run().evaluate();
 	}
 
 }
