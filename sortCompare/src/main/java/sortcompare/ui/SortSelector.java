@@ -58,6 +58,7 @@ public class SortSelector extends Selector {
 				if (algorithms.isEmpty()) {
 					prompt("You must select at least one algorithm; please try again.");
 				} else {
+					System.out.println("Sorting...");
 					return algorithms;
 				}
 			} else if (input > 0 && input < 7) {
@@ -84,7 +85,7 @@ public class SortSelector extends Selector {
 				+ "\n  2  Bucket sort (unavailable)"
 				+ "\n  3  Heap sort (unavailable)"
 				+ "\n  4  Insertion sort"
-				+ "\n  5  Merge sort (unavailable)"
+				+ "\n  5  Merge sort"
 				+ "\n  6  Quick sort (unavailable)"
 				+ "\n  7  Preview selected algorithms"
 				+ "\n  9  See these options again"

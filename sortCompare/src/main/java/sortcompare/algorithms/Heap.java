@@ -5,6 +5,7 @@ import sortcompare.structures.FlexList;
 /**
  * Heap sort. Divides data into a sorted region and an unsorted region then
  * shrinks the unsorted region until it is empty.
+ *
  * @author Oliver Lewisohn
  */
 public class Heap extends Sort {

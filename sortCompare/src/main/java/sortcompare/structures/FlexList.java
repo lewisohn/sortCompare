@@ -17,6 +17,12 @@ public class FlexList<E> extends ArrayList<E> {
 		this.addAll(Arrays.asList(array));
 	}
 
+	public E poll() {
+		E e = this.get(0);
+		this.remove(0);
+		return e;
+	}
+	
 	@Override
 	public String toString() {
 		Iterator<E> iterator = iterator();
