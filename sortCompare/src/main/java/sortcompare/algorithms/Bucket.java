@@ -1,6 +1,6 @@
 package sortcompare.algorithms;
 
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Bucket sort. Divides data into buckets, sorts the buckets and recombines
@@ -10,7 +10,7 @@ import sortcompare.structures.FlexList;
 public class Bucket extends Sort {
 
 	@Override
-	public FlexList<Integer> sort(FlexList<Integer> data) {
+	public CustomList<Integer> sort(CustomList<Integer> data) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 

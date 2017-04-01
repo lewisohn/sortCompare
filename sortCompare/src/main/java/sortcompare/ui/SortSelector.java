@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import sortcompare.algorithms.*;
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Gathers a set of algorithms to compare.
@@ -12,7 +12,7 @@ import sortcompare.structures.FlexList;
  */
 public class SortSelector extends Selector {
 
-	private final FlexList<Sort> algorithms;
+	private final CustomList<Sort> algorithms;
 	private final Sort[] sorters;
 	private final BufferedReader reader;
 
@@ -20,7 +20,7 @@ public class SortSelector extends Selector {
 	 * Creates a new SortSelector.
 	 */
 	public SortSelector() {
-		algorithms = new FlexList<>();
+		algorithms = new CustomList<>();
 		sorters = new Sort[]{
 			new Bubble(),
 			new Bucket(),
@@ -36,7 +36,7 @@ public class SortSelector extends Selector {
 	 * Prompts the user to select some algorithms.
 	 * @return
 	 */
-	public FlexList<Sort> populate() {
+	public CustomList<Sort> populate() {
 		System.out.println("Next, let's choose some sorting algorithms to compare.");
 		int input = -1;
 		boolean flag = false;

@@ -1,7 +1,7 @@
 package sortcompare.ui;
 
 import sortcompare.algorithms.Sort;
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Container class for user interaction.
@@ -9,8 +9,8 @@ import sortcompare.structures.FlexList;
  */
 public class UI {
 
-	private FlexList<Integer> data;
-	private FlexList<Sort> algorithms;
+	private CustomList<Integer> data;
+	private CustomList<Sort> algorithms;
 
 	/**
 	 * Interacts with the user.

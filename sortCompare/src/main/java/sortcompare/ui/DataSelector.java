@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Gathers data for sorting.
@@ -12,14 +12,14 @@ import sortcompare.structures.FlexList;
  */
 public class DataSelector extends Selector {
 
-	private final FlexList<Integer> data;
+	private final CustomList<Integer> data;
 	private final BufferedReader reader;
 
 	/**
 	 * Creates a new DataSelector.
 	 */
 	public DataSelector() {
-		data = new FlexList();
+		data = new CustomList();
 		reader = new BufferedReader(new InputStreamReader(System.in));
 	}
 
@@ -27,7 +27,7 @@ public class DataSelector extends Selector {
 	 * Prompts the user to choose a method of entering data.
 	 * @return The finalised data.
 	 */
-	public FlexList<Integer> populate() {
+	public CustomList<Integer> populate() {
 		System.out.println("To compare sorting algorithms, we need some data to sort.");
 		int input = -1;
 		boolean flag = false;

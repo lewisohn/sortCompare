@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Tests sorting algorithms.
@@ -17,7 +17,7 @@ import sortcompare.structures.FlexList;
 public abstract class SortTest {
 
 	private final Random rand;
-	FlexList<Integer> data;
+	CustomList<Integer> data;
 	Sort algorithm;
 
 	public SortTest() {
@@ -34,14 +34,14 @@ public abstract class SortTest {
 
 	@Before
 	public void setUp() {
-		data = new FlexList<>();
+		data = new CustomList<>();
 	}
 
 	@After
 	public void tearDown() {
 	}
 
-	private void test(FlexList<Integer> data) {
+	private void test(CustomList<Integer> data) {
 		data = algorithm.sort(data);
 		for (int i = 0; i < data.size() - 1; i++) {
 			assertTrue("Data is not sorted correctly.", data.get(i + 1) >= data.get(i));
@@ -135,7 +135,7 @@ public abstract class SortTest {
 		for (int i = 0; i < size; i++) {
 			data.add(rand.nextInt());
 		}
-		FlexList<Integer> sorted = algorithm.sort((FlexList<Integer>) data.clone());
+		CustomList<Integer> sorted = algorithm.sort((CustomList<Integer>) data.clone());
 		for (Integer i : data) {
 			assertTrue("Data is missing.", sorted.remove(i));
 		}

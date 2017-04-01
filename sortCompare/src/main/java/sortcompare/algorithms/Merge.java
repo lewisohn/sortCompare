@@ -1,6 +1,6 @@
 package sortcompare.algorithms;
 
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Merge sort. Divides data into small subsets, sorts them, then compares and
@@ -11,8 +11,8 @@ import sortcompare.structures.FlexList;
 public class Merge extends Sort {
 
 	@Override
-	public FlexList<Integer> sort(FlexList<Integer> data) {
-		FlexList<int[]> lists = new FlexList<>();
+	public CustomList<Integer> sort(CustomList<Integer> data) {
+		CustomList<int[]> lists = new CustomList<>();
 		for (Integer i : data) {
 			lists.add(new int[]{i});
 		}
@@ -23,7 +23,7 @@ public class Merge extends Sort {
 		return data;
 	}
 
-	private int[] mergesort(FlexList<int[]> lists) {
+	private int[] mergesort(CustomList<int[]> lists) {
 		while (lists.size() > 1) {
 			for (int i = 0; i < lists.size() / 2; i++) {
 				lists.set(i, merge(lists.get(i), lists.get(i + 1)));

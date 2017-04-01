@@ -1,6 +1,6 @@
 package sortcompare.algorithms;
 
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Quick sort. Chooses a item then moves everything less than it to the left and
@@ -11,7 +11,7 @@ import sortcompare.structures.FlexList;
 public class Quick extends Sort {
 
 	@Override
-	public FlexList<Integer> sort(FlexList<Integer> data) {
+	public CustomList<Integer> sort(CustomList<Integer> data) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 

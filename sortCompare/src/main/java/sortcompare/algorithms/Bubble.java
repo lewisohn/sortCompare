@@ -1,6 +1,6 @@
 package sortcompare.algorithms;
 
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Bubble sort. Compares adjacent items and swaps them if they're in the wrong
@@ -10,7 +10,7 @@ import sortcompare.structures.FlexList;
 public class Bubble extends Sort {
 
 	@Override
-	FlexList<Integer> sort(FlexList<Integer> data) {
+	CustomList<Integer> sort(CustomList<Integer> data) {
 		boolean swap = true;
 		int i = 0;
 		int temp;

@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @author Oliver Lewisohn
  * @param <E> The type of Object the list will contain.
  */
-public class FlexList<E> extends ArrayList<E> {
+public class CustomList<E> extends ArrayList<E> {
 
 	public void addAll(E[] array) {
 		this.addAll(Arrays.asList(array));

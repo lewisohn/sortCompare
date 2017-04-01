@@ -1,8 +1,8 @@
 package sortcompare.ui;
 
 import sortcompare.algorithms.Sort;
-import sortcompare.structures.FlexList;
-import sortcompare.structures.SpaceTime;
+import sortcompare.structures.CustomList;
+import sortcompare.structures.CustomPair;
 
 /**
  * Evaluates sorting algorithms.
@@ -10,15 +10,15 @@ import sortcompare.structures.SpaceTime;
  */
 public class Evaluator {
 
-	private final FlexList<Integer> data;
-	private final FlexList<Sort> algorithms;
+	private final CustomList<Integer> data;
+	private final CustomList<Sort> algorithms;
 
 	/**
 	 * Creates a new Evaluator.
 	 * @param data The data to be sorted.
 	 * @param algorithms The algorithms to compare.
 	 */
-	public Evaluator(FlexList<Integer> data, FlexList<Sort> algorithms) {
+	public Evaluator(CustomList<Integer> data, CustomList<Sort> algorithms) {
 		this.data = data;
 		this.algorithms = algorithms;
 	}
@@ -27,11 +27,11 @@ public class Evaluator {
 	 * Evaluates the selected sorting algorithms with the provided data.
 	 */
 	public void evaluate() {
-		SpaceTime st;
+		CustomPair pair;
 		for (Sort algorithm : algorithms) {
-			st = algorithm.measure((FlexList<Integer>) data.clone());
-			System.out.println(algorithm.toString() + " sort finished in " + st.getTime()
-					+ " ms and used approximately " + (st.getSpace() / 1024) + " KiB of memory.");
+			pair = algorithm.measure((CustomList<Integer>) data.clone());
+			System.out.println(algorithm.toString() + " sort finished in " + pair.getSecond()
+					+ " ms and used approximately " + (pair.getFirst() / 1024) + " KiB of memory.");
 		}
 	}
 

@@ -1,6 +1,6 @@
 package sortcompare.algorithms;
 
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomList;
 
 /**
  * Insertion sort. Adds one item at a time to the previously sorted region.
@@ -9,7 +9,7 @@ import sortcompare.structures.FlexList;
 public class Insertion extends Sort {
 
 	@Override
-	public FlexList<Integer> sort(FlexList<Integer> data) {
+	public CustomList<Integer> sort(CustomList<Integer> data) {
 		int i, j, temp;
 		for (i = 1; i < data.size(); i++) {
 			temp = data.get(i);

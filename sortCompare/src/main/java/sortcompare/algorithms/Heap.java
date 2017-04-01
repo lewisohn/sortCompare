@@ -1,6 +1,7 @@
 package sortcompare.algorithms;
 
-import sortcompare.structures.FlexList;
+import sortcompare.structures.CustomHeap;
+import sortcompare.structures.CustomList;
 
 /**
  * Heap sort. Divides data into a sorted region and an unsorted region then
@@ -11,8 +12,15 @@ import sortcompare.structures.FlexList;
 public class Heap extends Sort {
 
 	@Override
-	public FlexList<Integer> sort(FlexList<Integer> data) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	public CustomList<Integer> sort(CustomList<Integer> data) {
+		CustomHeap<Integer> heap = new CustomHeap<>();
+		for (Integer i : data) {
+			heap.add(i);
+		}
+		for (int i = 0; i < data.size(); i++) {
+			data.set(i, heap.remove());
+		}
+		return data;
 	}
 
 	@Override
