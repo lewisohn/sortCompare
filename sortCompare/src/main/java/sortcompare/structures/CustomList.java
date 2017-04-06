@@ -22,7 +22,13 @@ public class CustomList<E> extends ArrayList<E> {
 		this.remove(0);
 		return e;
 	}
-	
+
+	public void append(CustomList<E> list) {
+		for (E e : list) {
+			this.add(e);
+		}
+	}
+
 	@Override
 	public String toString() {
 		Iterator<E> iterator = iterator();

@@ -23,7 +23,7 @@ public class SortSelector extends Selector {
 		algorithms = new CustomList<>();
 		sorters = new Sort[]{
 			new Bubble(),
-			new Bucket(),
+			new Counting(),
 			new Heap(),
 			new Insertion(),
 			new Merge(),
@@ -82,8 +82,8 @@ public class SortSelector extends Selector {
 	@Override
 	void options() {
 		System.out.println("  1  Bubble sort"
-				+ "\n  2  Bucket sort (unavailable)"
-				+ "\n  3  Heap sort (unavailable)"
+				+ "\n  2  Bucket sort"
+				+ "\n  3  Heap sort"
 				+ "\n  4  Insertion sort"
 				+ "\n  5  Merge sort"
 				+ "\n  6  Quick sort (unavailable)"

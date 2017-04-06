@@ -3,8 +3,8 @@ package sortcompare.algorithms;
 import sortcompare.structures.CustomList;
 
 /**
- * Bucket sort. Divides data into buckets, sorts the buckets and recombines
- * them.
+ * Quick sort. Divide items into buckets, sort them and recombine them.
+ *
  * @author Oliver Lewisohn
  */
 public class Bucket extends Sort {
@@ -16,7 +16,7 @@ public class Bucket extends Sort {
 
 	@Override
 	public String toString() {
-		return "Bucket";
+		return "Quick";
 	}
 
 }
