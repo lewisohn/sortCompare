@@ -13,12 +13,14 @@ public class Heap extends Sort {
 
 	@Override
 	public CustomList<Integer> sort(CustomList<Integer> data) {
-		CustomHeap<Integer> heap = new CustomHeap<>();
-		for (Integer i : data) {
-			heap.add(i);
-		}
-		for (int i = 0; i < data.size(); i++) {
-			data.set(i, heap.remove());
+		if (!data.isEmpty()) {
+			CustomHeap<Integer> heap = new CustomHeap<>();
+			for (Integer i : data) {
+				heap.add(i);
+			}
+			for (int i = 0; i < data.size(); i++) {
+				data.set(i, heap.remove());
+			}
 		}
 		return data;
 	}

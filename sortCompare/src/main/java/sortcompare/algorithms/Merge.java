@@ -12,13 +12,15 @@ public class Merge extends Sort {
 
 	@Override
 	public CustomList<Integer> sort(CustomList<Integer> data) {
-		CustomList<int[]> lists = new CustomList<>();
-		for (Integer i : data) {
-			lists.add(new int[]{i});
-		}
-		int[] temp = mergesort(lists);
-		for (int i = 0; i < data.size(); i++) {
-			data.set(i, temp[i]);
+		if (!data.isEmpty()) {
+			CustomList<int[]> lists = new CustomList<>();
+			for (Integer i : data) {
+				lists.add(new int[]{i});
+			}
+			int[] temp = mergesort(lists);
+			for (int i = 0; i < data.size(); i++) {
+				data.set(i, temp[i]);
+			}
 		}
 		return data;
 	}

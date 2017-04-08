@@ -23,7 +23,7 @@ public class SortSelector extends Selector {
 		algorithms = new CustomList<>();
 		sorters = new Sort[]{
 			new Bubble(),
-			new Counting(),
+			new Bucket(),
 			new Heap(),
 			new Insertion(),
 			new Merge(),

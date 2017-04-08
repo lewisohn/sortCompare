@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fi.helsinki.cs</groupId>
 	<artifactId>sortCompare</artifactId>
-	<version>0.2</version>
+	<version>0.3</version>
 	<packaging>jar</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>fi.helsinki.cs</groupId>
 			<artifactId>sortCompare</artifactId>
-			<version>0.2</version>
+			<version>0.3</version>
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>

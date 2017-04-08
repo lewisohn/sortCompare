@@ -13,6 +13,14 @@ import java.util.Iterator;
  */
 public class CustomList<E> extends ArrayList<E> {
 
+	public CustomList() {
+		super();
+	}
+
+	public CustomList(int size) {
+		super(size);
+	}
+
 	public void addAll(E[] array) {
 		this.addAll(Arrays.asList(array));
 	}
