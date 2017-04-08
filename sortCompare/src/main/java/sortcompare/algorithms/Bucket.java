@@ -5,7 +5,7 @@ import sortcompare.structures.CustomList;
 
 /**
  * Bucket sort. Divides items into buckets, sorts them and recombines them.
- * Relies on an inner sorting method (can be changed).
+ * Relies on an inner sorting algorithm (defaults to Quick, can be changed).
  *
  * @author Oliver Lewisohn
  */
@@ -14,14 +14,15 @@ public class Bucket extends Sort {
 	private final Sort innerSort;
 
 	/**
-	 * Creates a new Bucket with an inner heap sort.
+	 * Creates a new Bucket with an inner quick sort.
 	 */
 	public Bucket() {
-		this.innerSort = new Heap();
+		this.innerSort = new Quick();
 	}
-	
+
 	/**
 	 * Creates a new Bucket with a specified inner sort.
+	 *
 	 * @param innerSort The inner sorting algorithm.
 	 */
 	public Bucket(Sort innerSort) {
@@ -41,6 +42,9 @@ public class Bucket extends Sort {
 				}
 			}
 			int count = (int) Math.sqrt(data.size());
+			/* We have to use BigIntegers in this algorithm to avoid Integer
+			size limitations.
+			 */
 			BigInteger size = BigInteger.valueOf(max);
 			size = size.subtract(BigInteger.valueOf(min)).divide(BigInteger.valueOf(count)).add(BigInteger.ONE);
 			CustomList<CustomList<Integer>> buckets = new CustomList<>(count);

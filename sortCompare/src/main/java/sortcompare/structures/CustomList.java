@@ -26,12 +26,16 @@ public class CustomList<E> extends ArrayList<E> {
 	}
 
 	public E poll() {
-		E e = this.get(0);
-		this.remove(0);
-		return e;
+		if (!this.isEmpty()) {
+			E e = this.get(0);
+			this.remove(0);
+			return e;
+		} else {
+			return null;
+		}
 	}
 
-	public void append(CustomList<E> list) {
+	public void append(CustomListPrototype<E> list) {
 		for (E e : list) {
 			this.add(e);
 		}

@@ -34,7 +34,7 @@ public class SortSelector extends Selector {
 
 	/**
 	 * Prompts the user to select some algorithms.
-	 * @return
+	 * @return The list of sorting algorithms selected by the user.
 	 */
 	public CustomList<Sort> populate() {
 		System.out.println("Next, let's choose some sorting algorithms to compare.");
@@ -86,7 +86,7 @@ public class SortSelector extends Selector {
 				+ "\n  3  Heap sort"
 				+ "\n  4  Insertion sort"
 				+ "\n  5  Merge sort"
-				+ "\n  6  Quick sort (unavailable)"
+				+ "\n  6  Quick sort"
 				+ "\n  7  Preview selected algorithms"
 				+ "\n  9  See these options again"
 				+ "\n  0  End selection");

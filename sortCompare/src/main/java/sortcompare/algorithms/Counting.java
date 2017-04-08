@@ -16,28 +16,30 @@ public class Counting extends Sort {
 
 	@Override
 	public CustomList<Integer> sort(CustomList<Integer> data) {
-		/* First we have to divide the data into positive and negative parts */		
-		CustomList<Integer> neg = new CustomList<>();
-		CustomList<Integer> pos = new CustomList<>();
-		for (Integer i : data) {
-			if (i < 0) {
-				neg.add(-i);
-			} else {
-				pos.add(i);
+		if (!data.isEmpty()) {
+			/* First we have to divide the data into positive and negative parts */
+			CustomList<Integer> neg = new CustomList<>();
+			CustomList<Integer> pos = new CustomList<>();
+			for (Integer i : data) {
+				if (i < 0) {
+					neg.add(-i);
+				} else {
+					pos.add(i);
+				}
 			}
-		}
-		/* Then we can sort them as if they were both positive */
-		neg = positiveSort(neg);
-		pos = positiveSort(pos);
-		int value;
-		/* Finally, recombine them, restoring the negative part's sign */
-		for (int i = 0; i < data.size(); i++) {
-			if (i < neg.size()) {
-				value = -neg.get(neg.size() - i - 1);
-			} else {
-				value = pos.get(i - neg.size());
+			/* Then we can sort them as if they were both positive */
+			neg = positiveSort(neg);
+			pos = positiveSort(pos);
+			int value;
+			/* Finally, recombine them, restoring the negative part's sign */
+			for (int i = 0; i < data.size(); i++) {
+				if (i < neg.size()) {
+					value = -neg.get(neg.size() - i - 1);
+				} else {
+					value = pos.get(i - neg.size());
+				}
+				data.set(i, value);
 			}
-			data.set(i, value);
 		}
 		return data;
 	}

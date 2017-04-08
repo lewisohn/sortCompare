@@ -1,5 +1,6 @@
 package sortcompare;
 
+import sortcompare.structures.CustomList;
 import sortcompare.ui.UI;
 
 /**
@@ -13,7 +14,13 @@ public class Main {
 	 * @param args No arguments necessary.
 	 */
 	public static void main(String[] args) {
-		new UI().run().evaluate();
+		CustomList<Integer> cl = new CustomList<>();
+		System.out.println(cl);
+		cl.add(5);
+		cl.add(-4);
+		System.out.println(cl);
+		
+//		new UI().run().evaluate();
 	}
 
 }

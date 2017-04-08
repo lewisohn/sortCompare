@@ -51,7 +51,7 @@ public abstract class SortTest {
 	/**
 	 * Test with very basic data.
 	 */
-	@Test
+	@Test(timeout = 100)
 	public void basicTest() {
 		data.addAll(new Integer[]{5, 2, 3, 4, 1});
 		test(data);
@@ -60,7 +60,7 @@ public abstract class SortTest {
 	/**
 	 * Test with very basic negative data.
 	 */
-	@Test
+	@Test(timeout = 100)
 	public void negativeTest() {
 		data.addAll(new Integer[]{-5, -2, -3, -4, -1});
 		test(data);
@@ -69,10 +69,10 @@ public abstract class SortTest {
 	/**
 	 * Test with data in descending order.
 	 */
-	@Test
+	@Test(timeout = 1000)
 	public void reverseTest() {
-		for (int i = 0; i < 100; i++) {
-			data.add(50 - i);
+		for (int i = 0; i < 1000; i++) {
+			data.add(500 - i);
 		}
 		test(data);
 	}
@@ -80,9 +80,9 @@ public abstract class SortTest {
 	/**
 	 * Test with data already in ascending order.
 	 */
-	@Test
+	@Test(timeout = 1000)
 	public void nullTest() {
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000; i++) {
 			data.add(i);
 		}
 		test(data);
@@ -91,10 +91,10 @@ public abstract class SortTest {
 	/**
 	 * Test with random positive and negative numbers.
 	 */
-	@Test
+	@Test(timeout = 1000)
 	public void randomTest() {
 		for (int i = 0; i < 1000; i++) {
-			data.add(rand.nextInt() * (rand.nextInt(2) == 0 ? 1 : -1));
+			data.add(rand.nextInt());
 		}
 		test(data);
 	}
@@ -102,7 +102,7 @@ public abstract class SortTest {
 	/**
 	 * Test with many small numbers and one very large number.
 	 */
-	@Test
+	@Test(timeout = 1000)
 	public void outlierTest() {
 		int insert = rand.nextInt(1000);
 		for (int i = 0; i < insert; i++) {
@@ -116,20 +116,9 @@ public abstract class SortTest {
 	}
 
 	/**
-	 * Test with a large data set.
-	 */
-	@Test
-	public void bigTest() {
-		for (int i = 0; i < 20000; i++) {
-			data.add(rand.nextInt() * (rand.nextInt(2) == 0 ? 1 : -1));
-		}
-		test(data);
-	}
-
-	/**
 	 * Test to make sure no data is missing and no new data has been added.
 	 */
-	@Test
+	@Test(timeout = 1000)
 	public void exactTest() {
 		int size = 1000 + rand.nextInt(1000);
 		for (int i = 0; i < size; i++) {
@@ -137,8 +126,31 @@ public abstract class SortTest {
 		}
 		CustomList<Integer> sorted = algorithm.sort((CustomList<Integer>) data.clone());
 		for (Integer i : data) {
-			assertTrue("Data is missing.", sorted.remove(i));
+			assertTrue("Data is missing: " + i, sorted.remove(i));
 		}
-		assertTrue("Data has been added.", sorted.isEmpty());
+		assertTrue("Data has been added: " + sorted.poll(), sorted.isEmpty());
 	}
+
+	/**
+	 * Test with a large data set.
+	 */
+	@Test(timeout = 5000)
+	public void bigTest() {
+		for (int i = 0; i < 5000; i++) {
+			data.add(rand.nextInt());
+		}
+		test(data);
+	}
+
+	/**
+	 * Test with an even larger data set.
+	 */
+	@Test(timeout = 25000)
+	public void biggerTest() {
+		for (int i = 0; i < 25000; i++) {
+			data.add(rand.nextInt());
+		}
+		test(data);
+	}
+
 }
