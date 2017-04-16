@@ -10,6 +10,9 @@ import sortcompare.structures.CustomPair;
  */
 public abstract class Sort {
 
+	
+	private static Integer temp;
+	
 	/**
 	 * Benchmarks and calls the sorting algorithm.
 	 *
@@ -36,8 +39,8 @@ public abstract class Sort {
 	 */
 	abstract CustomList<Integer> sort(CustomList<Integer> data);
 
-	void swap(CustomList<Integer> data, int i, int j) {
-		int temp = data.get(i);
+	static void swap(CustomList<Integer> data, int i, int j) {
+		temp = data.get(i);
 		data.set(i, data.get(j));
 		data.set(j, temp);
 	}

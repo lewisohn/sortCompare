@@ -21,7 +21,7 @@ public class Bubble extends Sort {
 				i++;
 				for (int j = 0; j < data.size() - i; j++) {
 					if (data.get(j) > data.get(j + 1)) {
-						swap(data, j, j+1);
+						swap(data, j, j + 1);
 						swapped = true;
 					}
 				}
