@@ -66,10 +66,7 @@ public class Main {
 			data.add(temp);
 		}
 		for (CustomList<Integer> integers : data) {
-			Evaluator eval = new Evaluator(integers, algorithms);
-			for (int i = 0; i < 10; i++) {
-				eval.evaluate();
-			}
+			new Evaluator(integers, algorithms).evaluate(10);
 		}
 	}
 
