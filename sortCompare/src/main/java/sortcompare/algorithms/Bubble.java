@@ -15,7 +15,6 @@ public class Bubble extends Sort {
 		if (!data.isEmpty()) {
 			boolean swapped = true;
 			int i = 0;
-			int temp;
 			while (swapped) {
 				swapped = false;
 				i++;

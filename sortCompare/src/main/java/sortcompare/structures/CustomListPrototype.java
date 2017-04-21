@@ -79,9 +79,9 @@ public class CustomListPrototype<E> implements Iterable<E> {
 			return "[ ]";
 		} else {
 			StringBuilder sb = new StringBuilder("[");
-			for (int i = 0; i < array.length; i++) {
-				if (array[i] != null) {
-					sb.append(array[i].toString()).append(", ");
+			for (Object o : array) {
+				if (o != null) {
+					sb.append(o.toString()).append(", ");
 				}
 			}
 			sb.delete(sb.length() - 2, sb.length());

@@ -33,33 +33,22 @@ public class Evaluator {
 	}
 
 	public void evaluate(int repeat) {
-		CustomPair pair;
-		long space, time;
 		long[][] results = new long[algorithms.size()][6];
+		CustomPair pair;
 		for (int i = 0; i < algorithms.size(); i++) {
-			results = init(results, i);
+			results = initialise(results, i);
 			for (int j = 0; j <= repeat; j++) {
 				pair = algorithms.get(i).measure((CustomList<Integer>) data.clone());
 				if (j > 0) { // results from first run are ignored
-					space = pair.getFirst();
-					time = pair.getSecond();
-					results[i][0] = Math.min(results[i][0], space);
-					results[i][1] = Math.max(results[i][1], space);
-					results[i][2] += space;
-					results[i][3] = Math.min(results[i][3], time);
-					results[i][4] = Math.max(results[i][4], time);
-					results[i][5] += time;
+					results = update(results, i, pair);
 				}
 			}
-			results[i][0] /= 1024;
-			results[i][1] /= 1024;
-			results[i][2] /= (1024 * repeat);
-			results[i][5] /= repeat;
+			results = complete(results, i, repeat);
 		}
 		print(results);
 	}
 
-	private long[][] init(long[][] results, int i) {
+	private long[][] initialise(long[][] results, int i) {
 		for (int j = 0; j < results.length; j++) {
 			if (j == 0 || j == 3) {
 				results[i][j] = Long.MAX_VALUE;
@@ -70,6 +59,26 @@ public class Evaluator {
 		return results;
 	}
 
+	private long[][] update(long[][] results, int i, CustomPair pair) {
+		long space = pair.getFirst();
+		long time = pair.getSecond();
+		results[i][0] = Math.min(results[i][0], space);
+		results[i][1] = Math.max(results[i][1], space);
+		results[i][2] += space;
+		results[i][3] = Math.min(results[i][3], time);
+		results[i][4] = Math.max(results[i][4], time);
+		results[i][5] += time;
+		return results;
+	}
+
+	private long[][] complete(long[][] results, int i, int repeat) {
+		results[i][0] /= 1024;
+		results[i][1] /= 1024;
+		results[i][2] /= (1024 * repeat);
+		results[i][5] /= repeat;
+		return results;
+	}
+
 	private void print(long[][] results) {
 		System.out.println("n = " + data.size() + "\tspace/KiB \t \ttime/ms");
 		System.out.println("Algorithm \tmin \tmax \tmean \tmin \tmax \tmean");
@@ -77,7 +86,7 @@ public class Evaluator {
 		for (int i = 0; i < results.length; i++) {
 			StringBuilder sb = new StringBuilder(algorithms.get(i).toString());
 			sb.append("\t");
-			if (i != 3) {
+			if (!algorithms.get(i).toString().equals("Insertion")) {
 				sb.append("\t");
 			}
 			for (int j = 0; j < results[i].length; j++) {

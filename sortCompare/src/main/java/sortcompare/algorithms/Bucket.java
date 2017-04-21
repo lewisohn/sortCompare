@@ -51,7 +51,6 @@ public class Bucket extends Sort {
 			for (int i = 0; i < count; i++) {
 				buckets.add(new CustomList<>());
 			}
-			int n;
 			for (int i = 0; i < data.size(); i++) {
 				BigInteger m = BigInteger.valueOf(data.get(i));
 				m = m.subtract(BigInteger.valueOf(min)).divide(size);
