@@ -39,7 +39,7 @@ public abstract class Sort {
 	 */
 	abstract CustomList<Integer> sort(CustomList<Integer> data);
 
-	static void swap(CustomList<Integer> data, int i, int j) {
+	void swap(CustomList<Integer> data, int i, int j) {
 		temp = data.get(i);
 		data.set(i, data.get(j));
 		data.set(j, temp);

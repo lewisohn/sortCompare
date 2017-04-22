@@ -1,6 +1,8 @@
 package sortcompare.structures;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Flexible-sized list. Work-in-progress.
@@ -10,39 +12,28 @@ import java.util.Iterator;
  */
 public class CustomListPrototype<E> implements Iterable<E> {
 
-	private Object[] array;
-	private int next;
-	private int size;
+	private static final int SIZE_DEFAULT = 10;
 
-	public CustomListPrototype() {
-		array = new Object[10];
-		init();
-	}
+	private Object[] array;
+	private int next = 0;
+	private int size = 0;
 
 	public CustomListPrototype(int size) {
 		array = new Object[size];
-		init();
 	}
 
-	private void init() {
-		next = 0;
-		size = 0;
-	}
-
-	@SuppressWarnings("unchecked")
-	public Object[] getArray() {
-		return array; // used for testing
+	public CustomListPrototype() {
+		array = new Object[SIZE_DEFAULT];
 	}
 
 	public boolean add(E e) {
-		if (next >= array.length) {
-			if (!expand(array.length * 2)) {
-				return false;
-			}
+		if ((next >= array.length) && !ensure()) {
+			return false;
+		} else {
+			array[next++] = e;
+			size++;
+			return true;
 		}
-		array[next++] = e;
-		size++;
-		return true;
 	}
 
 	public boolean append(CustomList<E> source) {
@@ -63,6 +54,36 @@ public class CustomListPrototype<E> implements Iterable<E> {
 		return true;
 	}
 
+	public void clear() {
+		for (int i = 0; i < array.length; i++) {
+			array[i] = null;
+		}
+		next = 0;
+		size = 0;
+	}
+
+	public boolean contains(E e) {
+		return (indexOf(e) > 0);
+	}
+
+	public CustomList<E> copy() {
+		CustomList<E> copy = new CustomList<>();
+		copy.append(this);
+		return copy;
+	}
+
+	public E get(int index) {
+		if ((index >= 0) && (index < array.length)) {
+			return (E) array[index];
+		} else {
+			throw new ArrayIndexOutOfBoundsException(index);
+		}
+	}
+
+	public boolean isEmpty() {
+		return (size == 0);
+	}
+
 	public E poll() {
 		if (this.isEmpty()) {
 			return null;
@@ -71,6 +92,77 @@ public class CustomListPrototype<E> implements Iterable<E> {
 			this.remove(0);
 			return e;
 		}
+	}
+
+	public void set(int index, E e) {
+		if ((index >= 0) && (index < array.length)) {
+			array[index] = e;
+		} else {
+			throw new ArrayIndexOutOfBoundsException(index);
+		}
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public void remove(int index) {
+		if ((index >= 0) && (index < array.length)) {
+			if (size - index - 1 > 0) {
+				System.arraycopy(array, index + 1, array, index, array.length - index - 1);
+			}
+			array[--size] = null;
+		} else {
+			throw new ArrayIndexOutOfBoundsException(index);
+		}
+	}
+
+	public boolean remove(E e) {
+		int index = indexOf(e);
+		if (index > 0) {
+			remove(index);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// Private methods and overrides, no Javadoc
+	private boolean ensure() {
+		return expand(newSize());
+	}
+
+	private boolean ensure(int minSize) {
+		return expand(Math.min(newSize(), minSize));
+	}
+
+	private boolean expand(int newSize) {
+		if (array.length == Integer.MAX_VALUE) {
+			return false;
+		} else {
+			E[] newArray = (E[]) new Object[newSize];
+			System.arraycopy(array, 0, newArray, 0, array.length);
+			array = newArray;
+			return true;
+		}
+	}
+
+	private int indexOf(E e) {
+		for (int i = 0; i < array.length; i++) {
+			if (array[i].equals(e)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	private int newSize() {
+		return (array.length * 2 > 0 ? array.length * 2 : Integer.MAX_VALUE);
+	}
+
+	@Override
+	public Iterator<E> iterator() {
+		return new CustomListIterator();
 	}
 
 	@Override
@@ -89,92 +181,35 @@ public class CustomListPrototype<E> implements Iterable<E> {
 		}
 	}
 
-	private boolean expand(int size) {
-		if (array.length == Integer.MAX_VALUE) {
-			return false;
-		} else {
-			E[] bigger = (E[]) new Object[Math.min(Integer.MAX_VALUE, size)];
-			System.arraycopy(array, 0, bigger, 0, array.length);
-			array = bigger;
-			return true;
+	// Used for testing only
+	@SuppressWarnings("unchecked")
+	public Object[] getArray() {
+		return array;
+	}
+
+	// Custom iterator
+	private final class CustomListIterator<E> implements Iterator<E> {
+
+		private int index = 0;
+
+		@Override
+		public boolean hasNext() {
+			return (index < array.length);
 		}
-	}
 
-	public boolean isEmpty() {
-		return (size == 0);
-	}
-
-	public int size() {
-		return size;
-	}
-
-	public E get(int index) {
-		if ((index >= 0) && (index < array.length)) {
-			return (E) array[index];
-		} else {
-			throw new ArrayIndexOutOfBoundsException(index);
-		}
-	}
-
-	public void set(int index, E e) {
-		if (index >= 0) {
-			if (index >= array.length) {
-				expand(Math.min(index + 1, array.length * 2));
-			}
-			array[index] = e;
-		} else {
-			throw new ArrayIndexOutOfBoundsException(index);
-		}
-	}
-
-	public void remove(int index) {
-		if ((index >= 0) && (index < array.length)) {
-			array[index] = null;
-			size--;
-		} else {
-			throw new ArrayIndexOutOfBoundsException(index);
-		}
-	}
-
-	public boolean remove(E e) {
-		int index = index(e);
-		if (index > 0) {
-			remove(index);
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	private int index(E e) {
-		for (int i = 0; i < array.length; i++) {
-			if (array[i].equals(e)) {
-				return i;
+		@Override
+		public E next() {
+			if (hasNext()) {
+				return (E) array[index++];
+			} else {
+				throw new NoSuchElementException();
 			}
 		}
-		return -1;
-	}
 
-	public void clear() {
-		for (int i = 0; i < array.length; i++) {
-			array[i] = null;
+		@Override
+		public void remove() {
+			CustomListPrototype.this.remove(index);
 		}
-		size = 0;
-	}
-
-	public boolean contains(E e) {
-		return (index(e) > 0);
-	}
-
-	public CustomList<E> copy() {
-		CustomList<E> copy = new CustomList<>();
-		copy.append(this);
-		return copy;
-	}
-
-	@Override
-	public Iterator<E> iterator() {
-		return null;
 	}
 
 }

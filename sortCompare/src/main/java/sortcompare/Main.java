@@ -12,41 +12,48 @@ import sortcompare.ui.UI;
  * @author Oliver Lewisohn
  */
 public class Main {
+	
+	private static final int REPEAT_DEFAULT = 10;
 
 	/**
-	 * Main method. If arguments are passed to this method, the program will run
-	 * in automatic mode, otherwise it will run in manual mode by launching the
-	 * user interface. Afterwards it calls the evaluator.
+	 * Main method. If two or more arguments are passed to this method, the
+	 * program will run in automatic mode, otherwise it will run in manual mode
+	 * by launching the user interface.
 	 *
-	 * @param args (Optional) A list of positive integers. Each integer
-	 * corresponds to an "n" value, in other words, how many randomly generated
-	 * numbers should be passed to the algorithms for sorting.
+	 * @param args (Optional) A list of positive integers. The first integer is
+	 * the number of times the sorting algorithms should be run for each input.
+	 * The following integers correspond to the sizes of inputs, or in other
+	 * words, how many randomly generated numbers should be passed to the
+	 * algorithms for sorting.
 	 */
 	public static void main(String[] args) {
-		if (args.length == 0) { // ask for manual input if no arguments passed
-			new UI().run().evaluate();
-		} else { // else prepare for automatic mode
-			int[] sizes = new int[args.length];
-			int temp;
-			for (int i = 0; i < args.length; i++) {
-				try {
-					temp = Integer.parseInt(args[i]); // exception thrown if argument is not an integer
-					if (temp > 0) {
-						sizes[i] = temp;
-					} else {
-						throw new NumberFormatException(); // thrown if argument is an integer but not positive
-					}
-				} catch (NumberFormatException e) {
-					System.err.println("Error: " + args[i] + " is not a positive integer.");
-					System.exit(1);
-				}
+		int repeat = (args.length > 0 ? parse(args[0]) : REPEAT_DEFAULT);
+		if (args.length > 1) {
+			int[] sizes = new int[args.length - 1];
+			for (int i = 1; i < args.length; i++) {
+				sizes[i - 1] = parse(args[i]);
 			}
-			automatic(sizes);
+			automatic(sizes, repeat);
+		} else {
+			new UI().run().evaluate(repeat);
 		}
-
 	}
 
-	private static void automatic(int[] sizes) {
+	private static int parse(String arg) {
+		try {
+			int temp = Integer.parseInt(arg); // exception thrown if argument is not an integer
+			if (temp <= 0) {
+				throw new NumberFormatException(); // thrown if argument is not positive
+			}
+			return temp;
+		} catch (NumberFormatException e) {
+			System.err.println("Error: " + arg + " is not a positive integer.");
+			System.exit(1);
+		}
+		return 1;
+	}
+
+	private static void automatic(int[] sizes, int repeat) {
 		CustomList<Sort> algorithms = new CustomList<>();
 		algorithms.addAll(new Sort[]{
 			new Bubble(),
@@ -56,17 +63,17 @@ public class Main {
 			new Merge(),
 			new Quick()
 		});
-		CustomList<CustomList<Integer>> data = new CustomList<>();
+		CustomList<Integer>[] data = new CustomList[sizes.length];
 		Random rand = new Random();
-		for (int i = 0; i < sizes.length; i++) {
+		for (int i = 0; i < data.length; i++) {
 			CustomList<Integer> temp = new CustomList<>();
 			for (int j = 0; j < sizes[i]; j++) {
 				temp.add(rand.nextInt());
 			}
-			data.add(temp);
+			data[i] = temp;
 		}
 		for (CustomList<Integer> integers : data) {
-			new Evaluator(integers, algorithms).evaluate(10);
+			new Evaluator(integers, algorithms).evaluate(repeat);
 		}
 	}
 

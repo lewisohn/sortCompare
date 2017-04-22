@@ -17,7 +17,7 @@ public class Bucket extends Sort {
 	 * Creates a new Bucket with an inner quick sort.
 	 */
 	public Bucket() {
-		this.innerSort = new Quick();
+		this.innerSort = new Bubble();
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class Bucket extends Sort {
 
 	@Override
 	public String toString() {
-		return "Bucket";
+		return "Bucket (" + innerSort.toString() + ")";
 	}
 
 }

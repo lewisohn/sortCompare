@@ -27,11 +27,9 @@ public class Evaluator {
 
 	/**
 	 * Evaluates the selected sorting algorithms with the provided data.
+	 *
+	 * @param repeat How many times each data set should be sorted.
 	 */
-	public void evaluate() {
-		evaluate(1);
-	}
-
 	public void evaluate(int repeat) {
 		long[][] results = new long[algorithms.size()][6];
 		CustomPair pair;
@@ -80,17 +78,20 @@ public class Evaluator {
 	}
 
 	private void print(long[][] results) {
-		System.out.println("n = " + data.size() + "\tspace/KiB \t \ttime/ms");
-		System.out.println("Algorithm \tmin \tmax \tmean \tmin \tmax \tmean");
-		System.out.println("-------------------------------------------------------------");
+		System.out.println("n = " + data.size() + "\t\t| Memory / KiB\t\t| Time / ms");
+		System.out.println("Algorithm\t\t| min\tmax\tmean\t| min\tmax\tmean");
+		System.out.println("------------------------+-----------------------+--------------------");
 		for (int i = 0; i < results.length; i++) {
 			StringBuilder sb = new StringBuilder(algorithms.get(i).toString());
-			sb.append("\t");
-			if (!algorithms.get(i).toString().equals("Insertion")) {
-				sb.append("\t");
+			while (sb.length() < 24) { // fill to 24 characters
+				sb.append(" ");
 			}
+			sb.append("| ");
 			for (int j = 0; j < results[i].length; j++) {
 				sb.append(results[i][j]).append("\t");
+				if (j == 2) {
+					sb.append("| ");
+				}
 			}
 			System.out.println(sb);
 		}
