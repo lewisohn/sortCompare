@@ -60,14 +60,6 @@ public class Heap extends Sort {
 					}
 				}
 			}
-
-//			CustomHeap heap = new CustomHeap(data.size());
-//			for (Integer i : data) {
-//				heap.add(i);
-//			}
-//			for (int i = 0; i < data.size(); i++) {
-//				data.set(i, heap.remove());
-//			}
 		}
 		return data;
 	}

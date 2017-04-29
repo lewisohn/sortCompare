@@ -36,7 +36,7 @@ public class Evaluator {
 		for (int i = 0; i < algorithms.size(); i++) {
 			results = initialise(results, i);
 			for (int j = 0; j <= repeat; j++) {
-				pair = algorithms.get(i).measure((CustomList<Integer>) data.clone());
+				pair = algorithms.get(i).measure((CustomList<Integer>) data.copy());
 				if (j > 0) { // results from first run are ignored
 					results = update(results, i, pair);
 				}

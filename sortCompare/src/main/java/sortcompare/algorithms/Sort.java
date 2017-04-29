@@ -39,6 +39,13 @@ public abstract class Sort {
 	 */
 	abstract CustomList<Integer> sort(CustomList<Integer> data);
 
+	/**
+	 * Swaps two elements of a list.
+	 * @param data The list containing the elements to be swapped.
+	 * @param i The index of the first element.
+	 * @param j The index of the second element.
+	 */
+	
 	void swap(CustomList<Integer> data, int i, int j) {
 		temp = data.get(i);
 		data.set(i, data.get(j));

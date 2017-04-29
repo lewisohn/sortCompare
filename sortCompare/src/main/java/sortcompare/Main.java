@@ -55,7 +55,7 @@ public class Main {
 
 	private static void automatic(int[] sizes, int repeat) {
 		CustomList<Sort> algorithms = new CustomList<>();
-		algorithms.addAll(new Sort[]{
+		algorithms.append(new Sort[]{
 			new Bubble(),
 			new Bucket(),
 			new Heap(),

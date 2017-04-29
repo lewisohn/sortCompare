@@ -19,6 +19,7 @@ public class CustomPair {
 		this.second = second;
 	}
 
+	// Getters, no Javadoc
 	public long getFirst() {
 		return first;
 	}

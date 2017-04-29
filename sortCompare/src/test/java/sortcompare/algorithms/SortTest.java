@@ -53,7 +53,7 @@ public abstract class SortTest {
 	 */
 	@Test(timeout = 100)
 	public void basicTest() {
-		data.addAll(new Integer[]{5, 2, 3, 4, 1});
+		data.append(new Integer[]{5, 2, 3, 4, 1});
 		test(data);
 	}
 
@@ -62,7 +62,7 @@ public abstract class SortTest {
 	 */
 	@Test(timeout = 100)
 	public void negativeTest() {
-		data.addAll(new Integer[]{-5, -2, -3, -4, -1});
+		data.append(new Integer[]{-5, -2, -3, -4, -1});
 		test(data);
 	}
 
@@ -122,13 +122,13 @@ public abstract class SortTest {
 	public void exactTest() {
 		int size = 1000 + rand.nextInt(1000);
 		for (int i = 0; i < size; i++) {
-			data.add(rand.nextInt());
+			data.add(rand.nextInt(size));
 		}
-		CustomList<Integer> sorted = algorithm.sort((CustomList<Integer>) data.clone());
+		CustomList<Integer> copy = algorithm.sort(data.copy());
 		for (Integer i : data) {
-			assertTrue("Data is missing: " + i, sorted.remove(i));
+			assertTrue("Data is missing: " + i, copy.remove(i));
 		}
-		assertTrue("Data has been added: " + sorted.poll(), sorted.isEmpty());
+		assertTrue("Data has been added: " + copy.poll(), copy.isEmpty());
 	}
 
 	/**

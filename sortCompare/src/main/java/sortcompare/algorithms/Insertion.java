@@ -3,7 +3,7 @@ package sortcompare.algorithms;
 import sortcompare.structures.CustomList;
 
 /**
- * Insertion sort. Adds one item at a time to the previously sorted region.
+ * Insertion sort. Adds one item at a time to a previously sorted region.
  *
  * @author Oliver Lewisohn
  */
