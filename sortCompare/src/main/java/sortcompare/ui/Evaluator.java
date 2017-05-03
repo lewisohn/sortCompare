@@ -78,7 +78,12 @@ public class Evaluator {
 	}
 
 	private void print(long[][] results) {
-		System.out.println("n = " + data.size() + "\t\t| Memory / KiB\t\t| Time / ms");
+		StringBuilder sb0 = new StringBuilder("n = " + data.size());
+		while (sb0.length() < 24) { // fill to 24 characters
+			sb0.append(" ");
+		}
+		sb0.append("| Memory / KiB\t\t| Time / ms");
+		System.out.println(sb0);
 		System.out.println("Algorithm\t\t| min\tmax\tmean\t| min\tmax\tmean");
 		System.out.println("------------------------+-----------------------+--------------------");
 		for (int i = 0; i < results.length; i++) {

@@ -14,7 +14,7 @@ public class Bucket extends Sort {
 	private final Sort innerSort;
 
 	/**
-	 * Creates a new Bucket with an inner quick sort.
+	 * Creates a new Bucket with an inner bubble sort.
 	 */
 	public Bucket() {
 		this.innerSort = new Bubble();
