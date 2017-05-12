@@ -31,7 +31,7 @@ This represents the bulk of the comparison. The tables below show memory and tim
 
 ![Graph: time](https://raw.githubusercontent.com/lewisohn/sortCompare/master/doc/results_time.png)
 
-* Theoretical
+    * Theoretical
 
 Observations:
 
