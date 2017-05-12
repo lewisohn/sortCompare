@@ -6,8 +6,9 @@ Random data
 This represents the bulk of the comparison. The tables below show memory and time usage for each algorithm with various input sizes (top row). Each test was performed 100 times and the values shown are arithmetic means.
 
 **Memory used in kibibytes (KiB)**
+
 | Algorithm       | Worst case* | 1000 | 2000 | 3000 | 4000 | 5000 | 10000 | 20000 | 30000 | 40000 | 50000 | 100000 |
-|:---------------:|:-----------:|:----:|:----:|:----:|:----:|:----:|:-----:|:-----:|:-----:|:-----:|:-----:|:------:|
+|-----------------|-------------|------|------|------|------|------|-------|-------|-------|-------|-------|--------|
 | Bubble          | O(1)        | 0    | 0    | 0    | 0    | 0    | 0     | 0     | 0     | 0     | 0     | 0      |
 | Bucket (Bubble) | O(n)        | 665  | 665  | 1331 | 1331 | 1996 | 3328  | 6656  | 9321  | 12646 | 15975 | 30773  |
 | Heap            | O(1)        | 7    | 0    | 6    | 0    | 0    | 0     | 0     | 0     | 0     | 0     | 0      |
@@ -15,11 +16,12 @@ This represents the bulk of the comparison. The tables below show memory and tim
 | Merge           | O(n)        | 665  | 665  | 665  | 665  | 1331 | 1997  | 3432  | 5034  | 6375  | 8910  | 17883  |
 | Quick           | O(log(n))   | 669  | 670  | 674  | 681  | 685  | 704   | 743   | 782   | 821   | 860   | 994    |
 
-[Image here]
+https://raw.githubusercontent.com/lewisohn/sortCompare/master/doc/results_memory.png
 
 **Time taken in milliseconds (ms)**
+
 | Algorithm       | Worst case* | 1000 | 2000 | 3000 | 4000 | 5000 | 10000 | 20000 | 30000 | 40000 | 50000 | 100000 |
-|:---------------:|:-----------:|:----:|:----:|:----:|:----:|:----:|:-----:|:-----:|:-----:|:-----:|:-----:|:------:|
+|-----------------|-------------|------|------|------|------|------|-------|-------|-------|-------|-------|--------|
 | Bubble          | O(n^2)      | 1    | 6    | 15   | 28   | 48   | 234   | 1122  | 2718  | 5052  | 8264  | 35057  |
 | Bucket (Bubble) | O(n^2)      | 0    | 0    | 0    | 1    | 1    | 3     | 8     | 13    | 20    | 28    | 81     |
 | Heap            | O(nlog(n))  | 0    | 0    | 0    | 0    | 0    | 1     | 3     | 5     | 8     | 10    | 26     |
@@ -27,7 +29,7 @@ This represents the bulk of the comparison. The tables below show memory and tim
 | Merge           | O(nlog(n))  | 0    | 1    | 3    | 3    | 4    | 19    | 73    | 221   | 287   | 801   | 3361   |
 | Quick           | O(n^2)      | 0    | 0    | 0    | 0    | 0    | 0     | 2     | 3     | 4     | 6     | 12     |
 
-[Image here]
+https://raw.githubusercontent.com/lewisohn/sortCompare/master/doc/results_time.png
 
 * Theoretical
 
@@ -50,7 +52,7 @@ Pre-sorted data
 This test was done with numbers from 0 to 99999 (inclusive) in ascending order, meaning the sorting algorithms did not have to change anything. Again, the tests were performed 100 times and the results below are arithmetic means.
 
 | Algorithm       | Memory / KiB | Time / ms |
-|:---------------:|:------------:|:---------:|
+|-----------------|--------------|-----------|
 | Bubble          | 6            | 0         |
 | Bucket (Bubble) | 17894        | 9         |
 | Heap            | 0            | 21        |
@@ -73,7 +75,7 @@ Reverse data
 This test was done with numbers from 99999 to 0 (inclusive) in descending order, meaning the sorting algorithms had to reverse the entire data set. Again, the tests were performed 100 times each and the results below are arithmetic means.
 
 | Algorithm       | Memory / KiB | Time / ms |
-|:---------------:|:------------:|:---------:|
+|-----------------|--------------|-----------|
 | Bubble          | 0            | 15323     |
 | Bucket (Bubble) | 17974        | 64        |
 | Heap            | 0            | 17        |

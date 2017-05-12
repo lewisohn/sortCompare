@@ -4,6 +4,6 @@ Data structures and algorithms project, spring 2017
 
 University of Helsinki, Department of Computer Science
 
-Estimated date of completion: 2017-05-12
+Date of completion: 2017-05-12
 
-[Shortcut to Javadoc index page](http://htmlpreview.github.io/?https://github.com/lewisohn/sortCompare/blob/master/sortCompare/target/site/apidocs/index.html)
+N.B. The .jar file and Javadocs can be found in the *dist* folder. Other documentation is in the *doc* folder.
