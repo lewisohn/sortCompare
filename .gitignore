@@ -13,6 +13,5 @@ hs_err_pid*
 /target/
 
 pu.sh
-/sortCompare/target/*
-!/sortCompare/target/site/
-/sortCompare/nbproject/
+/nbproject/
+/legacy/
