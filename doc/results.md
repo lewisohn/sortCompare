@@ -16,7 +16,7 @@ This represents the bulk of the comparison. The tables below show memory and tim
 | Merge           | O(n)        | 665  | 665  | 665  | 665  | 1331 | 1997  | 3432  | 5034  | 6375  | 8910  | 17883  |
 | Quick           | O(log(n))   | 669  | 670  | 674  | 681  | 685  | 704   | 743   | 782   | 821   | 860   | 994    |
 
-[Memory](https://raw.githubusercontent.com/lewisohn/sortCompare/master/doc/results_memory.png)
+![Graph: memory](https://raw.githubusercontent.com/lewisohn/sortCompare/master/doc/results_memory.png)
 
 **Time taken in milliseconds (ms)**
 
@@ -29,7 +29,7 @@ This represents the bulk of the comparison. The tables below show memory and tim
 | Merge           | O(nlog(n))  | 0    | 1    | 3    | 3    | 4    | 19    | 73    | 221   | 287   | 801   | 3361   |
 | Quick           | O(n^2)      | 0    | 0    | 0    | 0    | 0    | 0     | 2     | 3     | 4     | 6     | 12     |
 
-[Time](https://raw.githubusercontent.com/lewisohn/sortCompare/master/doc/results_time.png)
+![Graph: time](https://raw.githubusercontent.com/lewisohn/sortCompare/master/doc/results_time.png)
 
 * Theoretical
 
