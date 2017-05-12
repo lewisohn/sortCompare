@@ -10,11 +10,11 @@ Simply follow the instructions in *stdout* to proceed. First, generate some data
 
 > java -jar sortCompare.jar n
 
-This will also launch the program in manual mode, as above, but each test will be run *n* times, where n is between 1 and 2147483647. 
+This will also launch the program in manual mode, as above, but each test will be run *n* times, where *n* is between 1 and 2147483647. 
 
 > java -jar sortCompare.jar n a b c ...
 
-This will launch the program in automatic mode, which will evaluate all six sorting algorithms *n* times, where n is between 1 and 2147483647, with randomly generated data sets of sizes *a*, *b*, *c*, and so on. For example, running
+This will launch the program in automatic mode, which will evaluate all six sorting algorithms *n* times, where *n* is between 1 and 2147483647, with randomly generated data sets of sizes *a*, *b*, *c*, and so on. For example, running
 
 > java -jar sortCompare.jar 50 10000 20000 50000
 
